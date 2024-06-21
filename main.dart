@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'history_page.dart'; // Import the HistoryPage
+import 'settings_page.dart'; // Import the SettingsPage
+import 'scan_barcode_page.dart'; // Import the ScanBarcodePage
 
 void main() {
   runApp(ValueSnapApp());
@@ -19,44 +22,47 @@ class ValueSnapApp extends StatelessWidget {
 
 class MainPage extends StatelessWidget {
   void openSettings(BuildContext context) {
-    // Implement the logic to open settings page
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Settings button clicked!'),
-    ));
+    // Navigate to SettingsPage
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SettingsPage()),
+    );
   }
 
   void viewHistory(BuildContext context) {
-    // Implement the logic to view snap history
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Snap History button clicked!'),
-    ));
+    // Navigate to HistoryPage
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HistoryPage()),
+    );
   }
 
   void snapPhoto(BuildContext context) {
     // Implement the logic to snap a photo
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       content: Text('Snap Photo button clicked!'),
     ));
   }
 
   void scanBarcode(BuildContext context) {
-    // Implement the logic to scan a barcode
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Scan Barcode button clicked!'),
-    ));
+    // Navigate to ScanBarcodePage
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ScanBarcodePage()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ValueSnap'),
+        title: const Text('ValueSnap'),
         leading: IconButton(
-          icon: Icon(Icons.settings),
+          icon: const Icon(Icons.settings),
           onPressed: () => openSettings(context),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -81,16 +87,16 @@ class MainPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.history),
+              icon: const Icon(Icons.history),
               iconSize: 30,
               onPressed: () => viewHistory(context),
             ),
             FloatingActionButton(
               onPressed: () => snapPhoto(context),
-              child: Icon(Icons.camera_alt),
+              child: const Icon(Icons.camera_alt),
             ),
             IconButton(
-              icon: Icon(Icons.qr_code_scanner),
+              icon: const Icon(Icons.qr_code_scanner),
               iconSize: 30,
               onPressed: () => scanBarcode(context),
             ),
