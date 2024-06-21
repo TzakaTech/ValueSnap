@@ -1,0 +1,12 @@
+ValueSnap-backend/
+├── config/
+│   └── db.js
+├── controllers/
+│   └── objectController.js
+├── models/
+│   └── objectModel.js
+├── routes/
+│   └── objectRoutes.js
+├── app.js
+├── package.json
+└── .env
