@@ -29,9 +29,16 @@ def run_object_detection(tflite_model_path, image_path):
     
     # Get results
     output_data = interpreter.get_tensor(output_details[0]['index'])
-    print('Object detection result:', output_data)
+    return output_data
 
 if __name__ == "__main__":
-    tflite_model_path = 'path_to_tflite_model/model.tflite'
-    image_path = 'path_to_image/image.jpg'
-    run_object_detection(tflite_model_path, image_path)
+    import sys
+    if len(sys.argv) != 3:
+        print("Usage: python object_detection.py <tflite_model_path> <image_path>")
+        sys.exit(1)
+    
+    tflite_model_path = sys.argv[1]
+    image_path = sys.argv[2]
+    
+    result = run_object_detection(tflite_model_path, image_path)
+    print('Object detection result:', result)
