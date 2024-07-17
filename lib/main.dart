@@ -4,10 +4,12 @@ import 'settings_page.dart'; // Import the SettingsPage
 import 'scan_barcode_page.dart'; // Import the ScanBarcodePage
 
 void main() {
-  runApp(ValueSnapApp());
+  runApp(const ValueSnapApp());
 }
 
 class ValueSnapApp extends StatelessWidget {
+  const ValueSnapApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,17 +17,19 @@ class ValueSnapApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
 
 class MainPage extends StatelessWidget {
+  const MainPage({super.key});
+
   void openSettings(BuildContext context) {
     // Navigate to SettingsPage
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SettingsPage()),
+      MaterialPageRoute(builder: (context) => const SettingsPage()),
     );
   }
 
@@ -33,7 +37,7 @@ class MainPage extends StatelessWidget {
     // Navigate to HistoryPage
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HistoryPage()),
+      MaterialPageRoute(builder: (context) => const HistoryPage()),
     );
   }
 
@@ -48,7 +52,7 @@ class MainPage extends StatelessWidget {
     // Navigate to ScanBarcodePage
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ScanBarcodePage()),
+      MaterialPageRoute(builder: (context) => const ScanBarcodePage()),
     );
   }
 
