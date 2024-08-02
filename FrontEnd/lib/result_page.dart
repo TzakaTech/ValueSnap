@@ -25,7 +25,10 @@ class ResultPage extends StatelessWidget {
           children: [
             Text(
               'Object: $objectName',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 16),
             Text(
@@ -35,7 +38,10 @@ class ResultPage extends StatelessWidget {
             const SizedBox(height: 16),
             const Text(
               'Description:',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 8),
             Text(
