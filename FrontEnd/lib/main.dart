@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 import 'history_page.dart'; // Import the HistoryPage
 import 'settings_page.dart'; // Import the SettingsPage
 import 'scan_barcode_page.dart'; // Import the ScanBarcodePage
 import 'result_page.dart'; // Import the ResultPage
+import 'loading_dialog.dart'; // Import the LoadingDialog
 
 void main() {
   runApp(const ValueSnapApp());
@@ -45,6 +47,19 @@ class MainPage extends StatelessWidget {
   }
 
   void snapPhoto(BuildContext context) async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const LoadingDialog();
+      },
+    );
+
+    // Simulate a delay for loading
+    await Future.delayed(const Duration(seconds: 3));
+
+    Navigator.pop(context); // Dismiss the loading dialog
+
     // Directly navigate to the ResultPage
     Navigator.push(
       context,
