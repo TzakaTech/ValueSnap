@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 
 import 'history_page.dart'; // Import the HistoryPage
 import 'settings_page.dart'; // Import the SettingsPage
 import 'scan_barcode_page.dart'; // Import the ScanBarcodePage
-import 'result_page.dart'; // Import the ScanBarcodePage
-import 'backend/backend_service.dart'; // Import the BackendService
+import 'result_page.dart'; // Import the ResultPage
 
 void main() {
   runApp(const ValueSnapApp());
@@ -47,31 +45,17 @@ class MainPage extends StatelessWidget {
   }
 
   void snapPhoto(BuildContext context) async {
-    final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.camera);
-
-    if (image != null) {
-      File imageFile = File(image.path);
-      Map<String, dynamic> result =
-          await BackendService.processImage(imageFile);
-
-      if (result.containsKey('error')) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(result['error']),
-        ));
-      } else {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResultPage(
-              objectName: result['objectName'],
-              estimatedValue: result['estimatedValue'],
-              description: result['description'],
-            ),
-          ),
-        );
-      }
-    }
+    // Directly navigate to the ResultPage
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ResultPage(
+          objectName: "Sample Object",
+          estimatedValue: "100",
+          description: "This is a sample description.",
+        ),
+      ),
+    );
   }
 
   void scanBarcode(BuildContext context) {

@@ -7,9 +7,9 @@ class ResultPage extends StatelessWidget {
 
   const ResultPage({
     Key? key,
-    required this.objectName,
-    required this.estimatedValue,
-    required this.description,
+    this.objectName = "Sample Object",
+    this.estimatedValue = "100",
+    this.description = "This is a sample description.",
   }) : super(key: key);
 
   @override
